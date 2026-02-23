@@ -1271,6 +1271,85 @@
     margin-bottom: 4px;
   }
 
+/* ── STICKY BOTTOM BAR ── */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--navy);
+  border-top: 1px solid rgba(232,83,106,0.3);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1000;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.sticky-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-cta-date {
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-cta-date strong {
+  color: white;
+}
+
+.sticky-cta-btn {
+  display: inline-block;
+  background: var(--coral);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(232,83,106,0.4);
+  white-space: nowrap;
+}
+
+.sticky-cta-btn:hover {
+  background: var(--coral-light);
+  transform: translateY(-1px);
+}
+
+body {
+  padding-bottom: 70px;
+}
+
+@media (max-width: 480px) {
+  .sticky-cta {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .sticky-cta-date {
+    font-size: 13px;
+  }
+  .sticky-cta-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+  
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -1808,4 +1887,32 @@
     <strong>clarity under pressure</strong>
     <a href="https://clarityunderpressure.substack.com" style="color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">clarityunderpressure.substack.com</a>
   </div>
-  <div style="color: rgba(255
+  <div style="color: rgba(255,255,255,0.3); font-size: 12px;">© 2026 Clarity Under Pressure. Toate drepturile rezervate.</div>
+</footer>
+
+<!-- ══════════════════ STICKY BOTTOM BAR ══════════════════ -->
+<div class="sticky-cta">
+  <span class="sticky-cta-date">📅 <strong>Sâmbătă, 7 martie 2026</strong></span>
+  <a href="https://buy.stripe.com/fZueVe6YedB67pi9lOcIE01" class="sticky-cta-btn">Rezervă acum →</a>
+</div>
+
+<script>
+(function() {
+  var bar = document.querySelector('.sticky-cta');
+  var hero = document.querySelector('.hero');
+  if (!bar || !hero) return;
+  function check() {
+    var threshold = hero.offsetTop + hero.offsetHeight;
+    if (window.scrollY >= threshold) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+})();
+</script>
+
+</body>
+</html>
