@@ -1371,8 +1371,21 @@ body {
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     section { padding: 80px 48px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-visual { display: none; }
+.hero { grid-template-columns: 1fr; min-height: auto; }
+.hero-visual {
+  display: block;
+  position: relative;
+  min-height: 500px;
+}
+.hero-quote-card {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: none;
+  border-radius: 0;
+  padding: 20px 24px;
+  font-size: 15px;
+}
     .pain-grid, .for-whom-inner, .trainer-inner { grid-template-columns: 1fr; gap: 48px; }
     .included-grid { grid-template-columns: 1fr; }
     .outcomes-grid { grid-template-columns: 1fr 1fr; }
