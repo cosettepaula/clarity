@@ -241,42 +241,54 @@
   }
 
   /* ── PAIN POINTS ── */
-  .pain {
-    background: var(--blush);
-    padding: 100px 80px;
-  }
+.pain {
+  background: var(--blush);
+  padding: 100px clamp(24px, 6vw, 80px);
+}
 
-  .pain-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.pain-grid {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  .pain-left .section-desc {
-    font-size: 19px;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 40px;
-  }
+.pain-left {
+  text-align: center;
+  margin-bottom: 56px;
+}
 
-  .pain-statement {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--navy);
-    line-height: 1.5;
-    border-left: 3px solid var(--coral);
-    padding-left: 24px;
-  }
+.pain-left .section-label,
+.pain-left .section-title {
+  text-align: center;
+}
 
-  .quote-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+.pain-left .section-desc {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pain-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.6;
+  border-left: 3px solid var(--coral);
+  padding-left: 24px;
+  text-align: left;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+ .quote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
 
   .quote-card {
     background: white;
@@ -297,17 +309,16 @@
   }
 
   .result-line {
-    grid-column: span 2;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--navy);
-    padding: 20px;
-    background: var(--navy);
-    color: white;
-    border-radius: 6px;
-    letter-spacing: 0.3px;
-  }
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px;
+  background: var(--navy);
+  color: white;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
 
   /* ── FOR WHOM ── */
   .for-whom {
@@ -1346,26 +1357,24 @@
   <div class="pain-grid">
     <div class="pain-left">
       <p class="section-label">Recunoști asta?</p>
-      <h2 class="section-title">Ideile tale sunt bune.<br>Pur și simplu nu conving<br> <em>oamenii potriviți.</em></h2>
+      <h2 class="section-title">Ideile tale sunt bune.<br>Pur și simplu nu ajung<br>la <em>oamenii potriviți.</em></h2>
       <p class="section-desc">
         Nu este vorba de lipsă de cunoaștere sau de inteligență. Este vorba de ce se întâmplă în corpul și mintea ta în momentul în care vorbești sub presiune. Aceste probleme sunt reale, sunt comune, și se pot rezolva.
       </p>
       <p class="pain-statement">
-        „Sute de profesioniști competenți pierd oportunități nu pentru că nu cunosc domeniul — ci pentru că nu se pot exprima clar la momentul potrivit."
+        „Sute de profesioniști competenți pierd oportunități nu pentru că nu știu — ci pentru că nu se pot exprima clar la momentul potrivit."
       </p>
     </div>
-    <div class="pain-right">
-      <div class="quote-grid">
-        <div class="quote-card">„În cap îmi sună clar. Când încep să vorbesc, uit totul."</div>
-        <div class="quote-card">„Sunt paralizată de gândul că o să mă fac de râs și renunț."</div>
-        <div class="quote-card">„Alții par naturali. Eu par rigid, crispat."</div>
-        <div class="quote-card">„Nu știu cum să încep. Și nici cum să închei."</div>
-        <div class="quote-card">„Mă pierd în detalii și simt cum oamenii se deconectează."</div>
-        <div class="quote-card">„După ce termin de vorbit, îmi dau seama ce ar fi trebuit să spun."</div>
-        <div class="quote-card">„Explic totul în detaliu și tot nu se înțelege ce vreau să spun."</div>
-        <div class="quote-card">„Nu pot să joc teatru. Nu am carismă."</div>
-        <div class="result-line">Rezultatul? Ideile tale nu au impact. Nu ești singur.</div>
-      </div>
+    <div class="quote-grid">
+      <div class="quote-card">„În cap îmi sună clar. Când încep să vorbesc, uit totul."</div>
+      <div class="quote-card">„Sunt paralizată de gândul că o să mă fac de râs și renunț."</div>
+      <div class="quote-card">„Alții par naturali. Eu par rigid, crispat."</div>
+      <div class="quote-card">„Nu știu cum să încep. Și nici cum să închei."</div>
+      <div class="quote-card">„Mă pierd în detalii și simt cum oamenii se deconectează."</div>
+      <div class="quote-card">„După ce termin de vorbit, îmi dau seama ce ar fi trebuit să spun."</div>
+      <div class="quote-card">„Explic totul în detaliu și tot nu se înțelege ce vreau să spun."</div>
+      <div class="quote-card">„Nu pot să joc teatru. Nu am carismă."</div>
+      <div class="result-line">Rezultatul? Ideile tale nu au impact. Nu ești singur.</div>
     </div>
   </div>
 </section>
