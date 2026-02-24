@@ -1217,7 +1217,7 @@
   /* ── GUARANTEE ── */
   .guarantee {
     background: var(--navy);
-    padding: 80px clamp(24px, 6vw, 80px);
+    padding: 10px clamp(24px, 6vw, 80px);
   }
 
   .guarantee-inner {
@@ -2042,6 +2042,7 @@ body {
   var bar = document.querySelector('.sticky-cta');
   var hero = document.querySelector('.hero');
   if (!bar || !hero) return;
+
   function check() {
     var threshold = hero.offsetTop + hero.offsetHeight;
     if (window.scrollY >= threshold) {
@@ -2050,8 +2051,21 @@ body {
       bar.classList.remove('visible');
     }
   }
+
   window.addEventListener('scroll', check, { passive: true });
   check();
+
+  // iOS Safari fix: reposition bar relative to the visual viewport bottom
+  // so it stays flush with the screen bottom as the browser chrome animates
+  if (window.visualViewport) {
+    function updatePosition() {
+      var offsetFromBottom = window.innerHeight - (window.visualViewport.offsetTop + window.visualViewport.height);
+      bar.style.bottom = Math.max(0, offsetFromBottom) + 'px';
+    }
+    window.visualViewport.addEventListener('resize', updatePosition, { passive: true });
+    window.visualViewport.addEventListener('scroll', updatePosition, { passive: true });
+    updatePosition();
+  }
 })();
 </script>
 
